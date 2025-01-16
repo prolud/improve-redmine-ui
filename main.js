@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Better Redmine UI
 // @namespace Better Redmine UI
-// @description Melhora a UI do Redmine
+// @description Melhora a UI do Redmine: https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
 // @version 1.0.0
 // @grant none
 // ==/UserScript==
