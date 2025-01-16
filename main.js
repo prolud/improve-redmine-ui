@@ -64,6 +64,11 @@ p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items {
 .sidebar_closer {
   background-color: #3D454C !important;
 }
+
+.box {
+  background: none;
+  background-color: none;
+}
 `;
 
 if (document.URL.includes(".bellinatiperez.com.br/issues/")) {
