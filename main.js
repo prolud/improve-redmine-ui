@@ -2,6 +2,7 @@
 // @name Better Redmine UI
 // @namespace Better Redmine UI
 // @description Melhora a UI do Redmine
+// @version 1.0.0
 // @grant none
 // ==/UserScript==
 
