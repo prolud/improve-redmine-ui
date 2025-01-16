@@ -5,7 +5,7 @@
 // @grant none
 // ==/UserScript==
 
-const cssRules = `
+const issuesStyle = `
 * {
     box-sizing: border-box !important;
 }
@@ -52,7 +52,7 @@ ul.details {
   background-color: #222222;
   border: none !important;
 }
-p, h1, h2, h3, h4, div.label, div.value, .attributes {
+p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items {
   color: white !important;
 }
 #footer {
@@ -69,6 +69,6 @@ p, h1, h2, h3, h4, div.label, div.value, .attributes {
 if (document.URL.includes(".bellinatiperez.com.br/issues/")) {
   const styleElement = document.createElement('style');
   styleElement.type = 'text/css';
-  styleElement.appendChild(document.createTextNode(cssRules));
+  styleElement.appendChild(document.createTextNode(issuesStyle));
   document.head.appendChild(styleElement);
 }
