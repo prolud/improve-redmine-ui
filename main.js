@@ -4,58 +4,62 @@
 // @description Melhora a UI do Redmine
 // @updateURL   https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
 // @downloadURL https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
-// @version 1.0.0
+// @version 1.0.1
 // @grant none
 // ==/UserScript==
 
 const issuesStyle = `
 * {
-    box-sizing: border-box !important;
+  box-sizing: border-box !important;
 }
 .issue {
-    background-color: #333333 !important;
-    border-radius: 16px !important;
+  background-color: #333333 !important;
+  border-radius: 16px !important;
 }
 .progress {
-    border-radius: 5px !important;
-    overflow: hidden !important;
+  border-radius: 5px !important;
+  overflow: hidden !important;
+}
+fieldset {
+  border-radius: 16px !important;
+  border-color: #595959 !important;
 }
 td.closed {
-    background-color: #88E049 !important;
+  background-color: #88E049 !important;
 }
 .todo {
-    background-color: #777777 !important;
+  background-color: #777777 !important;
 }
-.gravatar {
-    border-radius: 16px !important;
+.gravatar, pre {
+  border-radius: 16px !important;
 }
 select,
-input,
-textarea {
-    border-radius: 6px !important;
+input {
+  border-radius: 6px !important;
 }
 textarea {
-    padding: 1rem !important;
+  padding: 1rem !important;
+  border-radius: 16px !important;
 }
 #history {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .journal {
-    background-color: #333333 !important;
-    border-radius: 16px;
-    padding: .8rem;
+  background-color: #333333 !important;
+  border-radius: 16px;
+  padding: 0.8rem;
 }
 ul.details {
-    color: #777777 !important;
-    margin: 0 !important;
+  color: #777777 !important;
+  margin: 0 !important;
 }
 #content, #main, .sidebar_closer, #sidebar {
   background-color: #222222;
   border: none !important;
 }
-p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items {
+p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items, legend, label {
   color: white !important;
 }
 #footer {
@@ -71,6 +75,31 @@ p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items {
 .box {
   background: none;
   background-color: none;
+  border-radius: 16px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-color: #595959 !important;
+}
+.jstElements {
+  button {
+    background-color: #888888 !important;
+    cursor: pointer !important;
+  }
+}
+input,
+textarea,
+pre {
+  background-color: #333333 !important;
+  border-color: #595959 !important;
+  color: white !important;
+}
+select {
+  background-color: #333333 !important;
+  border-color: #595959 !important;
+  color: white !important;
+  max-width: unset !important;
+  width: 10rem !important;
 }
 `;
 
