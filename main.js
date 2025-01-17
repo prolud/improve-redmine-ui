@@ -4,7 +4,7 @@
 // @description Melhora a UI do Redmine
 // @updateURL   https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
 // @downloadURL https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
-// @version 1.0.1
+// @version 1.0.2
 // @grant none
 // ==/UserScript==
 
@@ -30,8 +30,16 @@ td.closed {
 .todo {
   background-color: #777777 !important;
 }
-.gravatar, pre {
+pre {
   border-radius: 16px !important;
+}
+img.gravatar {
+  border: none !important;
+  padding: 0 !important;
+  min-height: 1.3125rem !important;
+  min-width: 1.3125rem !important;
+  border-radius: 8px !important;
+  margin: .5rem !important;
 }
 select,
 input {
@@ -50,6 +58,22 @@ textarea {
   background-color: #333333 !important;
   border-radius: 16px;
   padding: 0.8rem;
+
+  h4 {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+
+  .wiki {
+    padding-left: 1.5rem;
+  }
+
+  [id^="note-"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
 }
 ul.details {
   color: #777777 !important;
