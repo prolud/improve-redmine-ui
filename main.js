@@ -4,7 +4,7 @@
 // @description Melhora a UI do Redmine
 // @updateURL   https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
 // @downloadURL https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
-// @version 1.0.4
+// @version 1.0.5
 // @grant none
 // ==/UserScript==
 
@@ -33,7 +33,7 @@ ul.details {
   color: #777777 !important;
 }
 
-#content, #main, .sidebar_closer, #sidebar #content {
+#content, #main, .sidebar_closer, #sidebar {
   background: none !important;
   background-color: #222222 !important;
 }
@@ -69,35 +69,6 @@ input, textarea, pre {
 }
 `
 
-const removingContentStyle = `
-.sidebar_closer,
-.cf_70,
-.cf_35,
-.cf_48,
-.cf_47,
-.cf_25,
-.cf_28,
-.cf_68,
-.cf_69,
-.cf_71,
-.cf_61,
-.cf_72,
-.cf_16,
-.cf_14,
-.cf_40,
-.cf_72,
-.cf_74,
-.cf_78,
-.cf_3,
-.start-date,
-.due-date,
-#footer,
-.priority,
-.fixed-version {
-  display: none !important;
-}
-`
-
 const adjustingSpacingStyle = `
 #wrapper {
   padding: 0 !important;
@@ -110,6 +81,10 @@ img.gravatar {
   min-width: 1.3125rem !important;
   border-radius: 2px !important;
 }
+
+#content {
+  padding: 0 8rem !important;
+}
 `
 
 const journalStyle = `
@@ -120,7 +95,7 @@ const journalStyle = `
 }
 
 .journal {
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 1rem;
 
   h4 {
@@ -162,14 +137,44 @@ ul.details {
 `
 
 const improvingIssueCard = `
+.attributes {
+  margin: 1.5rem 0 2.8rem !important;
+}
+select {
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #777777;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #777777;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
 div.issue {
   display: flex;
   flex-direction: column;
-  
+  border-radius: 8px;
+
+  .gravatar {
+    display: none;
+  }
+
   .splitcontent {
+    .splitcontentleft {
+      width: unset;
+    }
+  
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 
     .field-description {
       border: none;
@@ -177,8 +182,10 @@ div.issue {
   }
 
   .attribute {
+    margin: .5rem 0;
     .label {
-      margin: 0;
+      width: unset;
+      margin: 0 .4rem 0 0;
     }
     .percent {
       display: flex;
@@ -195,6 +202,41 @@ div.issue {
 .progress {
   border-radius: 4px !important;
   overflow: hidden !important;
+}
+`
+
+const improveButtons = `
+.contextual{
+  display: flex;
+  align-itens: center;
+  padding: 0;
+  gap: 1rem;
+}
+.icon-edit {
+  background: none;
+  background-color: #0578BA;
+  color: white !important;
+  padding: .5rem;
+  border-radius: 4px;
+  text-decoration: none !important;
+  
+  &:hover {
+    background-color:rgb(3, 95, 148);
+  }
+  transition: all .15s;
+}
+.icon-time-add {
+  background: none;
+  background-color:rgb(25, 196, 90);
+  color: white !important;
+  padding: .5rem;
+  border-radius: 4px;
+  text-decoration: none !important;
+  
+  &:hover {
+    background-color:rgb(20, 161, 74);
+  }
+  transition: all .15s;
 }
 `
 
@@ -233,6 +275,45 @@ div.issue {
 // }
 // `;
 
+function removeContentStyle() {
+  const itensToRemove = [
+    ".sidebar_closer",
+    ".cf_70",
+    ".cf_35",
+    ".cf_48",
+    ".cf_47",
+    ".cf_25",
+    ".cf_28",
+    ".cf_68",
+    ".cf_69",
+    ".cf_71",
+    ".cf_61",
+    ".cf_72",
+    ".cf_16",
+    ".cf_14",
+    ".cf_40",
+    ".cf_74",
+    ".cf_78",
+    ".cf_3",
+    ".cf_5",
+    ".start-date",
+    ".due-date",
+    ".priority",
+    ".fixed-version",
+    "#footer",
+    ".issue-53097-watcher",
+    ".icon-copy",
+    ".next-prev-links"
+  ];
+
+  itensToRemove.forEach(elementClass => {
+    const element = document.querySelector(elementClass);
+    if (element) {
+      element.remove();
+    }
+  });
+}
+
 if (document.URL.includes(".bellinatiperez.com.br/issues/")) {
   const styleElement = document.createElement('style');
   styleElement.type = 'text/css';
@@ -241,7 +322,9 @@ if (document.URL.includes(".bellinatiperez.com.br/issues/")) {
   styleElement.appendChild(document.createTextNode(adjustingSpacingStyle));
   styleElement.appendChild(document.createTextNode(journalStyle));
   styleElement.appendChild(document.createTextNode(improvingIssueCard));
-  styleElement.appendChild(document.createTextNode(removingContentStyle));
+  styleElement.appendChild(document.createTextNode(improveButtons));
 
   document.head.appendChild(styleElement);
+
+  removeContentStyle()
 }
