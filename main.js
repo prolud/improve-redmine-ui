@@ -4,7 +4,7 @@
 // @description Melhora a UI do Redmine
 // @updateURL   https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
 // @downloadURL https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
-// @version 1.0.5
+// @version 1.0.6
 // @grant none
 // ==/UserScript==
 
@@ -42,7 +42,7 @@ ul.details {
   color: white !important;
 }
 
-p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items, legend, label {
+p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items, legend, label, .td2-button__title {
   color: white !important;
 }
 
