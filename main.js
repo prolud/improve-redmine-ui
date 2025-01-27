@@ -4,7 +4,7 @@
 // @description Melhora a UI do Redmine
 // @updateURL   https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
 // @downloadURL https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
-// @version 1.0.6
+// @version 1.0.7
 // @grant none
 // ==/UserScript==
 
@@ -301,15 +301,20 @@ function removeContentStyle() {
     ".priority",
     ".fixed-version",
     "#footer",
-    ".issue-53097-watcher",
+    ".icon-fav-off",
+    ".icon-fav",
     ".icon-copy",
     ".next-prev-links"
   ];
 
   itensToRemove.forEach(elementClass => {
-    const element = document.querySelector(elementClass);
-    if (element) {
-      element.remove();
+    const elementList = document.querySelectorAll(elementClass);
+    if (elementList) {
+      elementList.forEach(
+        (element) => {
+          element.remove();
+        }
+      )
     }
   });
 }
