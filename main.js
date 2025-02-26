@@ -4,69 +4,75 @@
 // @description Melhora a UI do Redmine
 // @updateURL   https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
 // @downloadURL https://raw.githubusercontent.com/prolud/improve-redmine-ui/refs/heads/main/main.js
-// @version 1.0.7
+// @version 1.0.8
 // @grant none
 // ==/UserScript==
 
 const darkModeStyle = `
-.issue {
-  background-color: #333333 !important;
-}
+  .issue {
+    background-color: #333333 !important;
+  }
+  
+  fieldset.preview {
+    background-color: #333333 !important;
+  }
 
-fieldset {
-  border-color: #595959 !important;
-}
+  fieldset {
+    border-color: #595959 !important;
+    background: none !important;
+    border-radius: 8px;
+  }
 
-td.closed {
-  background-color: #88E049 !important;
-}
+  td.closed {
+    background-color: #88E049 !important;
+  }
 
-.todo {
-  background-color: #777777 !important;
-}
+  .todo {
+    background-color: #777777 !important;
+  }
 
-.journal {
-  background-color: #333333 !important;
-}
+  .journal {
+    background-color: #333333 !important;
+  }
 
-ul.details {
-  color: #777777 !important;
-}
+  ul.details {
+    color: #777777 !important;
+  }
 
-#content, #main, .sidebar_closer, #sidebar {
-  background: none !important;
-  background-color: #222222 !important;
-}
+  #content, #main, .sidebar_closer, #sidebar {
+    background: none !important;
+    background-color: #222222 !important;
+  }
 
-#relations {
-  color: white !important;
-}
+  #relations {
+    color: white !important;
+  }
 
-p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items, legend, label, .td2-button__title {
-  color: white !important;
-}
+  p, h1, h2, h3, h4, div.label, div.value, .attributes, #checklist_items, legend, label, .td2-button__title {
+    color: white !important;
+  }
 
-select {
-  background-color: #333333 !important;
-  border-color: #595959 !important;
-  color: white !important;
-}
+  select {
+    background-color: #333333 !important;
+    border-color: #595959 !important;
+    color: white !important;
+  }
 
-input, textarea, pre {
-  background-color: #333333 !important;
-  border-color: #595959 !important;
-  color: white !important;
-}
+  input, textarea, pre {
+    background-color: #333333 !important;
+    border-color: #595959 !important;
+    color: white !important;
+  }
 
-.box {
-  background: none;
-  background-color: none;
-  border-color: #595959 !important;
-}
+  .box {
+    background: none;
+    background-color: none;
+    border-color: #595959 !important;
+  }
 
-#content, #main, .sidebar_closer, #sidebar {
-  border: none !important;
-}
+  #content, #main, .sidebar_closer, #sidebar {
+    border: none !important;
+  }
 `
 
 const adjustingSpacingStyle = `
@@ -114,10 +120,6 @@ const journalStyle = `
     .gravatar {
       margin: 0;
     }
-  }
-
-  &:not(.has-notes) {
-    display: none !important;
   }
 
   .wiki {
